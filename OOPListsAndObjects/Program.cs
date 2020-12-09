@@ -45,6 +45,22 @@ namespace OOPListsAndObjects
                     Console.WriteLine($"Planet: {planetFromList.Name}; Mass: {planetFromList.Mass}");
                 }
             }
+            public void FindandRemove(string searchEntry)
+            {
+                for(int i = 0; i < planets.Count; i++)
+                {
+                    if(planets[i].Name == searchEntry)
+                    {
+                        Console.WriteLine($"Planet {planets[i].Name} has been removed.");
+                        planets.Remove(planets[i]);
+                        break;
+                    }
+                }
+            }
+            public void CountPlanets()
+            {
+                Console.WriteLine($"There are {planets.Count} planets on the list.");
+            }
         }
         static void Main(string[] args)
         {
@@ -67,12 +83,18 @@ namespace OOPListsAndObjects
 
                 
                 newPlanetsList.AddPlanetToList(planetName, planetMass);
+                newPlanetsList.CountPlanets();
             }
 
             newPlanetsList.PrintPlanets();
-            {
-               
-            }
+            Console.WriteLine("What planet do you want to remove?");
+            string UserInput = Console.ReadLine();
+            newPlanetsList.FindandRemove(UserInput);
+            newPlanetsList.PrintPlanets();
+
+
+          
+
         }
     }
 }
