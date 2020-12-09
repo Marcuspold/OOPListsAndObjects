@@ -32,7 +32,7 @@ namespace OOPListsAndObjects
                 totalmass = 0;
             }
 
-            public void AddPlanetToFiles(string planetName, int planetMass)
+            public void AddPlanetToList(string planetName, int planetMass)
             {
                 Planet newPlanet = new Planet(planetName, planetMass);
                 planets.Add(newPlanet);
@@ -45,15 +45,11 @@ namespace OOPListsAndObjects
                     Console.WriteLine($"Planet: {planetFromList.Name}; Mass: {planetFromList.Mass}");
                 }
             }
-
-            public void DELETEALL()
-            {
-
-            }
         }
         static void Main(string[] args)
         {
             Console.WriteLine("Good Morning!");
+            Listofplanets newPlanetsList = new Listofplanets();
             string filePath = @"C:\Users\opilane\Samples";
             string fileName = @"planets.txt";
             string fullPath = Path.Combine(filePath, fileName);
@@ -69,6 +65,13 @@ namespace OOPListsAndObjects
                 Console.WriteLine(planetMass);
                 Console.WriteLine("----");
 
+                
+                newPlanetsList.AddPlanetToList(planetName, planetMass);
+            }
+
+            newPlanetsList.PrintPlanets();
+            {
+               
             }
         }
     }
